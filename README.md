@@ -1,47 +1,19 @@
-# Hooks Movie App
-This is the demo application using React Hooks!!!
+# 开始项目
 
-The article containing instructions on how to build this app can be found [here](https://www.freecodecamp.org/news/how-to-build-a-movie-search-app-using-react-hooks-24eb72ddfaf7/)
+原项目看这里 **[Hooks Movie App](https://github.com/samie820/hooks-movie-app)**.
 
-# Getting Started
-These instructions should get you a copy of the project up and running on your local machine for development and testing purposes.
 
-# Prerequisites
-Things you need to get started:
-- A recent version of Node running on your machine (8.0 or higher), check this [link](https://nodejs.org/en/download/) to download it.
-- A cool text editor, I recommend using either [VSCode](https://code.visualstudio.com/download) or [Atom(with the nuclide plugin)](https://nuclide.io/docs/editor/setup/)
 
-# Installing
-To get the project running, follow these steps:
-- Create a folder
--Enter/Navigate into that folder
-```
-cd <folder-name>
+## 项目描述
+
+### 安装依赖
+```javascript
+yarn//或 npm install
 ```
 
-- Clone this repository:
+### 开始项目
+```javascript
+yarn start//或 npm run start
 ```
-git clone https://github.com/samie820/hooks-movie-app.git
-```
-
-- Install all the project's dependencies:
-```
-yarn or npm install
-```
-- Once that's done, run the project:
-```
-npm start or yarn start
-```
-
-# Deployment
-The app can be deployed using either heroku or Netlify
-
-# Built With
-- Javascript
-- React - (UI library)
-
-# Contribution
-Please read the [CONTRIBUTING.md](#) file (Soon to be added) to see how you can contribute and add more features to the project.
-
-# Authors
-TODO: Add the Authors
+### 说明
+此项目是按照 **[Hooks Movie App](https://github.com/samie820/hooks-movie-app)** 进行改编，使用typescripts进行编写

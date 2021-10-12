@@ -1,19 +1,26 @@
-import React, { useReducer, useEffect } from "react";
-
+/*
+ * @Author: hft
+ * @Date: 2021-10-12 10:34:03
+ * @LastEditors: hft
+ * @LastEditTime: 2021-10-12 15:40:10
+ * @Description: file content
+ */
+import React, { useEffect, useReducer } from 'react';
+import './App.css';
 import Header from "./Header";
-import Movie from "./Movie";
+import Search from './Search';
 import spinner from "../assets/ajax-loader.gif";
-import Search from "./Search";
-import { initialState, reducer } from "../store/reducer";
 import axios from "axios";
-
-const MOVIE_API_URL = "https://www.omdbapi.com/?s=man&apikey=4a3b711b";
+import { initialState, reducer } from '../store/reducer';
+import Movie from './Movie';
+const MOVIE_API_URL: string = "https://www.omdbapi.com/?s=man&apikey=4a3b711b";
 
 const App = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const [state, dispatch]: any = useReducer<any>(reducer, initialState);
 
   useEffect(() => {
-    axios.get(MOVIE_API_URL).then(jsonResponse => {
+    axios.get(MOVIE_API_URL).then((jsonResponse: any) => {
       dispatch({
         type: "SEARCH_MOVIES_SUCCESS",
         payload: jsonResponse.data.Search
@@ -21,18 +28,18 @@ const App = () => {
     });
   }, []);
 
-  // you can add this to the onClick listener of the Header component
+
   const refreshPage = () => {
     window.location.reload();
   };
 
-  const search = searchValue => {
+  const search = (searchValue: any) => {
     dispatch({
       type: "SEARCH_MOVIES_REQUEST"
     });
 
     axios(`https://www.omdbapi.com/?s=${searchValue}&apikey=4a3b711b`).then(
-      jsonResponse => {
+      (jsonResponse: any) => {
         if (jsonResponse.data.Response === "True") {
           dispatch({
             type: "SEARCH_MOVIES_SUCCESS",
@@ -47,7 +54,6 @@ const App = () => {
       }
     );
   };
-
   const { movies, errorMessage, loading } = state;
 
   const retrievedMovies =
@@ -56,24 +62,20 @@ const App = () => {
     ) : errorMessage ? (
       <div className="errorMessage">{errorMessage}</div>
     ) : (
-      movies.map((movie, index) => (
+      movies.map((movie: any, index: any) => (
         <Movie key={`${index}-${movie.Title}`} movie={movie} />
       ))
     );
-
   return (
     <div className="App">
       <div className="m-container">
-        <Header text="HOOKED" />
-
+        <Header text="HOOKED-TS" />
         <Search search={search} />
-
         <p className="App-intro">Sharing a few of our favourite movies</p>
-
         <div className="movies">{retrievedMovies}</div>
       </div>
     </div>
   );
-};
+}
 
 export default App;

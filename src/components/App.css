@@ -84,7 +84,7 @@ input[type="submit"]:hover {
   color: antiquewhite;
 }
 
-.search > input[type="text"]{
+.search>input[type="text"] {
   width: 40%;
   min-width: 170px;
 }
